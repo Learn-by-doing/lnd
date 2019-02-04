@@ -20,8 +20,8 @@ RUN apk add --no-cache --update alpine-sdk \
 # Start a new, final image to reduce size.
 FROM alpine as final
 
-# Expose lnd ports (server, rpc).
-EXPOSE 9735 10009
+# Expose lnd ports (server, rpc, rest).
+EXPOSE 9735 10009 8001
 
 # Copy the binaries and entrypoint from the builder image.
 COPY --from=builder /go/bin/lncli /bin/
